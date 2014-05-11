@@ -1,0 +1,9 @@
+{
+	"name": "WebChat",
+	"version": "0.0.1",
+	"dependencies": {
+		"express": "4.1.2",
+		"socket.io": "0.9.16",
+		"redis": "0.10.1"
+	}
+}
