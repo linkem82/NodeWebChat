@@ -15,6 +15,7 @@ io.sockets.on("connection", function(client) {
 	console.log("Client connected...");	
 	client.on('messages', function(data) {
 		console.log(data);
+		client.broadcast.emit('message', data);
 	});
 });
 
