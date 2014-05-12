@@ -6,8 +6,21 @@ var path = require('path');
 var app = express();
 var server = http.createServer(app);
 var io = socket.listen(server);
-
 server.listen(8080);
+
+var os=require('os');
+var ifaces=os.networkInterfaces();
+var server_address;
+
+for (var dev in ifaces) {
+  var alias=0;
+  ifaces['Wireless Network Connection'].forEach(function(details){
+    if (details.family=='IPv4') {
+      server_address = details.address;    
+    }
+  });
+}
+console.log(server_address);
 
 app.use(express.static(path.resolve('../frontend')));
 

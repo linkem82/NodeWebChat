@@ -4,11 +4,16 @@ var insertMessage = function(message) {
 }
 
 $(document).ready(function() {
-	var socket = io.connect("htpp://localhost:8080");
+
+	var server_url = $(location).attr('href');;
+	var socket = io.connect(server_url);
 
 	socket.on('message', function(data) {
 		insertMessage(data);
-	})
+		$('body').scrollTop($(document).height());
+		//alert($('body').scrollTop());
+	});
+
 
 	$('#send_message').submit(function(event){		
 		event.preventDefault();
