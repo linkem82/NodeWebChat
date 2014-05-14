@@ -5834,3 +5834,15 @@ button.close {
 }
 body { padding-bottom: 120px; }
 /*# sourceMappingURL=bootstrap.css.map */
+#status {
+  color: #000;
+}
+
+.receiver {
+  color: #000;
+  background-color: #FFF;
+}
+.sender {
+  color: #FFF;
+  background-color: #000;
+}
