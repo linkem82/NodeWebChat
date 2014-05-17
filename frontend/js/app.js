@@ -1,7 +1,11 @@
-var insertMessage = function(message, styleClass) {
-	var messageEl = $('<li>' + message + '</li>');
-	messageEl.addClass(styleClass);
-	$('#messages').append(messageEl);
+var insertInList = function(name, message, styleClass) {
+	var el = $('<li>' + message + '</li>');
+	el.addClass(styleClass);
+	$("#" + name).append(el);
+}
+
+var moveScrollbarDown = function() {
+	$('body').scrollTop($(document).height());
 }
 
 $(document).ready(function() {
@@ -17,15 +21,16 @@ $(document).ready(function() {
 	});
 
 	socket.on('message', function(data) {
-		insertMessage(data, "sender");
-		$('body').scrollTop($(document).height());		
+		insertInList("messages", data, "sender");
+		moveScrollbarDown();		
 	});
 
 	$('#send_message').submit(function(event){		
 		event.preventDefault();
 		var message = $('#message').val();
 		socket.emit('messages', message);
-		insertMessage("Io: " + message, "receiver");
+		insertInList("messages", "Io: " + message, "receiver");
+		moveScrollbarDown();
 		$('#message').val('');
 	});
 	

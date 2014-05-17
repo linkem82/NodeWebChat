@@ -5832,7 +5832,7 @@ button.close {
     display: none !important;
   }
 }
-body { padding-bottom: 120px; }
+body { padding-bottom: 140px; }
 /*# sourceMappingURL=bootstrap.css.map */
 #status {
   color: #000;
@@ -5845,4 +5845,8 @@ body { padding-bottom: 120px; }
 .sender {
   color: #FFF;
   background-color: #000;
+}
+
+#users_title {
+  padding-left: 0px;
 }
